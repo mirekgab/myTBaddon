@@ -1,0 +1,46 @@
+{
+    "manifest_version": 2,
+    "name": "MyTBAddon",
+    "description": "An dummy thunderbird addon",
+    "version": "0.1",
+    "author": "mirekgab",
+    "default_locale": "en",
+    "applications": {
+        "gecko": {
+            "id": "mytbaddon@mirekgab.pl",
+            "strict_min_version": "78.0"
+        }
+    },
+    "browser_action": {
+        "default_popup": "src1/popup.html",
+        "default_title": "Hello world",
+        "default_label": "mirek popup1"
+    },
+    "message_display_action": {
+        "default_title": "mirek message",
+        "default_popup": "src1/popup.html"
+    },
+
+    "background": {
+        "scripts": [
+            "src/background.js",
+            "src/mybackground.js"
+        ]
+    },
+    "permissions": [
+        "messagesModify",
+        "messagesRead",
+        "menus",
+        "activeTab"
+    ],
+    "options_ui": {
+        "page": "options.html",
+        "open_in_tab": false,
+        "browser_style": true
+    },
+    "icons": {
+        "16": "icons/page-16.png",
+        "32": "icons/page-32.png",
+        "48": "icons/page-48.png"
+    }
+}
