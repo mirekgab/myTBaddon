@@ -1,8 +1,31 @@
+
+messenger.WindowListener.registerChromeUrl([
+	["content", "mirek", "chrome/content/mirek"],
+]);
+messenger.WindowListener.registerWindow(
+	"chrome://messenger/content/messenger.html",
+	"chrome://mboximport/content/mirek/messengerOL.js");
+messenger.WindowListener.startListening();
+
 async function main() {
   console.log('mybackground function main');
 }
 
+async function mirek1(result) {
+  console.log('function mirek1');
+  result.forEach(f => {
+    console.log(f);
+  })
+}
+
 main();
+var m1;
+
+function mirek1111() {
+  console.log('mirek3');
+  const promisedVal = messenger.accounts.list();
+  promisedVal.then(val1 => mirek1(val1));
+}
 
 /*
 Called when the item has been created, or when creation failed due to an error.
@@ -106,11 +129,11 @@ browser.menus.create({
   command: "_execute_sidebar_action"
 }, onCreated);
 
-browser.menus.create({
-  id: "tools-menu",
-  title: browser.i18n.getMessage("menuItemToolsMenu"),
-  contexts: ["tools_menu"],
-}, onCreated);
+// browser.menus.create({
+//   id: "tools-menu",
+//   title: browser.i18n.getMessage("menuItemToolsMenu"),
+//   contexts: ["tools_menu"],
+// }, onCreated);
 
 
 
@@ -148,6 +171,8 @@ function updateCheckUncheck() {
   }
 }
 
+
+
 /*
 The click event listener, where we perform the appropriate action given the
 ID of the menu item that was clicked.
@@ -177,7 +202,7 @@ browser.menus.onClicked.addListener((info, tab) => {
       console.log("Clicked the tools menu item");
       break;
     case "mirek1111":
-      console.log("mirek1111");
+      mirek1111();
       break;
   }
 });

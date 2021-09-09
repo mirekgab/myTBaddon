@@ -31,8 +31,19 @@
         "messagesModify",
         "messagesRead",
         "menus",
-        "activeTab"
+        "activeTab",
+        "accountsRead"
     ],
+    "experiment_apis": {
+        "WindowListener": {
+          "schema": "api/WindowListener/schema.json",
+          "parent": {
+            "scopes": ["addon_parent"],
+            "paths": [["WindowListener"]],
+            "script": "api/WindowListener/implementation.js"
+          }
+        }
+      },
     "options_ui": {
         "page": "options.html",
         "open_in_tab": false,
